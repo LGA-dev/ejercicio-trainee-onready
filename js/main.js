@@ -42,6 +42,15 @@ const vehiculoMasBarato = listaVehiculos[0];
 const vehiculoMasCaro = listaVehiculos[3];
 const precioVehiculosMayorAMenor = listaVehiculos.reverse();
 
+
+let vehiculoQueContieneY = [];
+
+for(var i = 0; i < listaVehiculos.length; i++) {
+  if (listaVehiculos[i]["modelo"].includes("Y")) {
+    vehiculoQueContieneY = listaVehiculos[i];
+  }
+}
+
 // Mensaje a imprimir
 console.log(
   `
@@ -52,7 +61,7 @@ console.log(
   =============================
   Vehículo más caro: ${vehiculoMasCaro.marca} ${vehiculoMasCaro.modelo}
   Vehículo más barato: ${vehiculoMasBarato.marca} ${vehiculoMasBarato.modelo}
-  Vehículo que contiene en el modelo la letra ‘Y’:
+  Vehículo que contiene en el modelo la letra ‘Y’: ${vehiculoQueContieneY.marca} ${vehiculoQueContieneY.modelo} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(vehiculoQueContieneY.precio)}
   =============================
   Vehículos ordenados por precio de mayor a menor:
   ${precioVehiculosMayorAMenor[0].marca} ${precioVehiculosMayorAMenor[0].modelo}
