@@ -45,10 +45,10 @@ const precioVehiculosMayorAMenor = listaVehiculos.reverse();
 // Mensaje a imprimir
 console.log(
   `
-  Marca: ${peugeot206.marca} // Modelo: ${peugeot206.modelo} // Puertas: ${peugeot206.puertas} // Precio: $${peugeot206.precio}
-  Marca: ${hondaTitan.marca} // Modelo: ${hondaTitan.modelo} // Cilindrada: ${hondaTitan.cilindrada} // Precio: $${hondaTitan.precio}
-  Marca: ${peugeot208.marca} // Modelo: ${peugeot208.modelo} // Puertas: ${peugeot208.puertas} // Precio: $${peugeot208.precio}
-  Marca: ${yamahaYBR.marca} // Modelo: ${yamahaYBR.modelo} // Cilindrada: ${yamahaYBR.cilindrada} // Precio: $${yamahaYBR.precio}
+  Marca: ${peugeot206.marca} // Modelo: ${peugeot206.modelo} // Puertas: ${peugeot206.puertas} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(peugeot206.precio)}
+  Marca: ${hondaTitan.marca} // Modelo: ${hondaTitan.modelo} // Cilindrada: ${hondaTitan.cilindrada} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(hondaTitan.precio)}
+  Marca: ${peugeot208.marca} // Modelo: ${peugeot208.modelo} // Puertas: ${peugeot208.puertas} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(peugeot208.precio)}
+  Marca: ${yamahaYBR.marca} // Modelo: ${yamahaYBR.modelo} // Cilindrada: ${yamahaYBR.cilindrada} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(yamahaYBR.precio)}
   =============================
   Vehículo más caro: ${vehiculoMasCaro.marca} ${vehiculoMasCaro.modelo}
   Vehículo más barato: ${vehiculoMasBarato.marca} ${vehiculoMasBarato.modelo}
