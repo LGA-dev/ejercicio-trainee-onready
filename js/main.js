@@ -6,24 +6,30 @@
     // Crear lista de autos
     listaVehiculos = crearAutos();
     // Asignar variables
+    let listaVehiculosForLoop = imprimirListaVehiculos(listaVehiculos);
     let vehiculoMasCaro = encontrarVehiculoMasCaro(listaVehiculos);
     let vehiculoMasBarato = encontrarVehiculoMasBarato(listaVehiculos);
     let modeloConY = encontrarModeloConY(listaVehiculos)
     // Ordenar lista de autos (Menor a Mayor)
-    let listaVehiculosOrdenada = listaVehiculos.sort(function(a, b){
-      return a.precio - b.precio;
-    })
-    
-    imprimirLista(listaVehiculos);
+    let listaVehiculosOrdenada = imprimirListaVehiculosOrdenada(listaVehiculos).reverse();
+    console.log(listaVehiculosOrdenada)
+
     console.log(
 `
+${listaVehiculosForLoop[0].marca} ${listaVehiculosForLoop[0].modelo} ${listaVehiculosForLoop[0].puertas} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[0].precio).replace(/\xa0/g, "")}
+${listaVehiculosForLoop[1].marca} ${listaVehiculosForLoop[1].modelo} ${listaVehiculosForLoop[1].cilindrada} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[1].precio).replace(/\xa0/g, "")}
+${listaVehiculosForLoop[2].marca} ${listaVehiculosForLoop[2].modelo} ${listaVehiculosForLoop[2].puertas} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[2].precio).replace(/\xa0/g, "")}
+${listaVehiculosForLoop[3].marca} ${listaVehiculosForLoop[3].modelo} ${listaVehiculosForLoop[3].cilindrada} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[3].precio).replace(/\xa0/g, "")}
 =============================
 Vehículo más caro: ${vehiculoMasCaro.marca} ${vehiculoMasCaro.modelo}
 Vehículo más barato: ${vehiculoMasBarato.marca} ${vehiculoMasBarato.modelo}
 Vehículo que contiene en el modelo la letra ‘Y’: ${modeloConY.marca} ${modeloConY.modelo} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(modeloConY.precio).replace(/\xa0/g, "")}
 =============================
 Vehículos ordenados por precio de mayor a menor:
-
+${listaVehiculosOrdenada[0].marca} ${listaVehiculosOrdenada[0].modelo}
+${listaVehiculosOrdenada[1].marca} ${listaVehiculosOrdenada[1].modelo}
+${listaVehiculosOrdenada[2].marca} ${listaVehiculosOrdenada[2].modelo}
+${listaVehiculosOrdenada[3].marca} ${listaVehiculosOrdenada[3].modelo}
 `
     );
     imprimirListaOrdenada(listaVehiculosOrdenada);
@@ -65,30 +71,50 @@ Vehículos ordenados por precio de mayor a menor:
   }
 
   // Imprimir lista de autos
-  function imprimirLista(lista) {
+  const imprimirListaVehiculos = (lista) => {
+    let arrVacio = []
     for(var i = 0; i < lista.length; i++) {
-      // Checkear si es un auto (propiedad "puertas")
-      if(lista[i].hasOwnProperty("puertas")) {
-        console.log(`Marca: ${lista[i].marca} // Modelo: ${lista[i].modelo} // Puertas: ${lista[i].puertas} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(lista[i].precio).replace(/\xa0/g, "")}`)
-      } 
-      // o si es una moto (propiedad "cilindrada") 
-      else {
-        console.log(`Marca: ${lista[i].marca} // Modelo: ${lista[i].modelo} // Cilindrada: ${lista[i].cilindrada} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(lista[i].precio).replace(/\xa0/g, "")}`)
+      if(lista[i].hasOwnProperty("cilindrada")) {
+        arrVacio.push({
+          marca: lista[i].marca,
+          modelo: lista[i].modelo,
+          cilindrada: lista[i].cilindrada,
+          precio: lista[i].precio
+        })
+      } else {
+        arrVacio.push({
+          marca: lista[i].marca,
+          modelo: lista[i].modelo,
+          puertas: lista[i].puertas,
+          precio: lista[i].precio
+        })
       }
     }
+    console.log("Array vacio abajo")
+    console.log(arrVacio)
+    return arrVacio
   }
 
-  // Imprimir lista de autos de mayor a menor precio
-  function imprimirListaOrdenada(lista) {
-    for(var i = 0; i < lista.length; i++) {
-      // Checkear si es una moto (propiedad "cilindrada") o un auto (propiedad "puertas")
-      if(lista[i].hasOwnProperty("cilindrada")) {
-        console.log(`${lista[i].marca} ${lista[i].modelo}`)
-      } else {
-        console.log(`${lista[i].marca} ${lista[i].modelo}`)
+    // Imprimir lista de autos de mayor a menor precio
+    const imprimirListaVehiculosOrdenada = (lista) => {
+      let arrVacio = []
+      for(var i = 0; i < lista.length; i++) {
+        if(lista[i].hasOwnProperty("cilindrada")) {
+          arrVacio.push({
+            marca: lista[i].marca,
+            modelo: lista[i].modelo
+          })
+        } else {
+          arrVacio.push({
+            marca: lista[i].marca,
+            modelo: lista[i].modelo
+          })
+        }
       }
+      console.log("Array precio ordenado vacio abajo")
+      console.log(arrVacio)
+      return arrVacio
     }
-  }
 
   // Encontrar vehiculo más caro en la lista
   function encontrarVehiculoMasCaro(lista) {
