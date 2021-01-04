@@ -12,14 +12,12 @@
     let modeloConY = encontrarModeloConY(listaVehiculos)
     // Ordenar lista de autos (Menor a Mayor)
     let listaVehiculosOrdenada = imprimirListaVehiculosOrdenada(listaVehiculos).reverse();
-    console.log(listaVehiculosOrdenada)
-
     console.log(
 `
-${listaVehiculosForLoop[0].marca} ${listaVehiculosForLoop[0].modelo} ${listaVehiculosForLoop[0].puertas} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[0].precio).replace(/\xa0/g, "")}
-${listaVehiculosForLoop[1].marca} ${listaVehiculosForLoop[1].modelo} ${listaVehiculosForLoop[1].cilindrada} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[1].precio).replace(/\xa0/g, "")}
-${listaVehiculosForLoop[2].marca} ${listaVehiculosForLoop[2].modelo} ${listaVehiculosForLoop[2].puertas} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[2].precio).replace(/\xa0/g, "")}
-${listaVehiculosForLoop[3].marca} ${listaVehiculosForLoop[3].modelo} ${listaVehiculosForLoop[3].cilindrada} ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[3].precio).replace(/\xa0/g, "")}
+Marca: ${listaVehiculosForLoop[0].marca} // Modelo: ${listaVehiculosForLoop[0].modelo} // Puertas: ${listaVehiculosForLoop[0].puertas} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[0].precio).replace(/\xa0/g, "")}
+Marca: ${listaVehiculosForLoop[1].marca} // Modelo: ${listaVehiculosForLoop[1].modelo} // Cilindrada: ${listaVehiculosForLoop[1].cilindrada} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[1].precio).replace(/\xa0/g, "")}
+Marca: ${listaVehiculosForLoop[2].marca} // Modelo: ${listaVehiculosForLoop[2].modelo} // Puertas: ${listaVehiculosForLoop[2].puertas} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[2].precio).replace(/\xa0/g, "")}
+Marca: ${listaVehiculosForLoop[3].marca} // Modelo: ${listaVehiculosForLoop[3].modelo} // Cilindrada: ${listaVehiculosForLoop[3].cilindrada} // Precio: ${new Intl.NumberFormat('es-AR', {currency: 'ARS', style: 'currency'}).format(listaVehiculosForLoop[3].precio).replace(/\xa0/g, "")}
 =============================
 Vehículo más caro: ${vehiculoMasCaro.marca} ${vehiculoMasCaro.modelo}
 Vehículo más barato: ${vehiculoMasBarato.marca} ${vehiculoMasBarato.modelo}
@@ -32,7 +30,6 @@ ${listaVehiculosOrdenada[2].marca} ${listaVehiculosOrdenada[2].modelo}
 ${listaVehiculosOrdenada[3].marca} ${listaVehiculosOrdenada[3].modelo}
 `
     );
-    imprimirListaOrdenada(listaVehiculosOrdenada);
   }
 
   // Clase Vehiculo
@@ -90,9 +87,7 @@ ${listaVehiculosOrdenada[3].marca} ${listaVehiculosOrdenada[3].modelo}
         })
       }
     }
-    console.log("Array vacio abajo")
-    console.log(arrVacio)
-    return arrVacio
+    return arrVacio;
   }
 
     // Imprimir lista de autos de mayor a menor precio
@@ -111,9 +106,7 @@ ${listaVehiculosOrdenada[3].marca} ${listaVehiculosOrdenada[3].modelo}
           })
         }
       }
-      console.log("Array precio ordenado vacio abajo")
-      console.log(arrVacio)
-      return arrVacio
+      return arrVacio;
     }
 
   // Encontrar vehiculo más caro en la lista
